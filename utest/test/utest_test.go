@@ -1,8 +1,8 @@
 package test
 
 import (
-	"ddup-go-util/utest"
 	. "github.com/smartystreets/goconvey/convey"
+	"github.com/winkb/ddup-go-util/utest"
 	"testing"
 )
 

@@ -1,4 +1,4 @@
-module ddup-go-util
+module github.com/winkb/ddup-go-util
 
 go 1.13
 
