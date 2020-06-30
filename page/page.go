@@ -1,6 +1,6 @@
 package page
 
-func GetRange(page, size, total int) (*ranger) {
+func GetRange(page, size, total int) (*Ranger) {
 	if page <= 1 {
 		page = 1
 	}
@@ -12,7 +12,7 @@ func GetRange(page, size, total int) (*ranger) {
 		size = 0
 	}
 	
-	return &ranger{
+	return &Ranger{
 		offset:offset,
 		limit:size,
 	}
