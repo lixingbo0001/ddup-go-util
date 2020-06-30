@@ -59,3 +59,12 @@ func (w *Where) Elt(value interface{}) *Where {
 
 	return w
 }
+
+func (w *Where) Like(value interface{}) *Where {
+	
+	w.Con = "like"
+	w.Val = value
+	
+	return w
+}
+
