@@ -1,29 +1,12 @@
-package utest
+package utestv2
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 )
-
-var testListPool *testsList
 
 type V interface{}
 
 type TestHandle func(t *testing.T, r V) V
-
-func init() {
-	testListPool = getTestsList()
-}
-
-//执行测试
-func Test(name string, t *testing.T, message string) {
-
-	utest := testListPool.get(name)
-
-	Convey(message, t, func() {
-		utest.val.handle(t, testListPool.depends(utest.next, t))
-	})
-}
 
 type uTest struct {
 	name        string
@@ -37,7 +20,6 @@ func Name(name string) *uTest {
 
 	return &uTest{
 		name: name,
-		pool: testListPool,
 	}
 }
 
