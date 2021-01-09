@@ -1,20 +1,20 @@
 package page
 
-func GetRange(page, size, total int) (*Ranger) {
+func GetRange(page, size int, total int64) *Ranger {
 	if page <= 1 {
 		page = 1
 	}
-	
+
 	offset := size * (page - 1)
-	
-	if offset >= total {
+
+	if int64(offset) >= total {
 		//设置为无效
 		size = 0
 	}
-	
+
 	return &Ranger{
-		offset:offset,
-		limit:size,
+		offset: offset,
+		limit:  size,
 	}
 }
 
@@ -23,12 +23,12 @@ func GetOffsetLimit(page, size, total int) (offset, limit int) {
 	if page <= 1 {
 		page = 1
 	}
-	
+
 	offset = size * (page - 1)
-	
+
 	if offset >= total {
 		return offset, 0
 	}
-	
+
 	return offset, size
 }
