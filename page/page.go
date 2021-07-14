@@ -1,13 +1,13 @@
 package page
 
-func GetRange(page, size int, total int64) *Ranger {
+func GetRange(page, size int, total int) *Ranger {
 	if page <= 1 {
 		page = 1
 	}
 
 	offset := size * (page - 1)
 
-	if int64(offset) >= total {
+	if offset >= total {
 		//设置为无效
 		size = 0
 	}
